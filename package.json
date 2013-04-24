@@ -1,4 +1,4 @@
-{ "name": "mediacontent"
+{ "name": "webinos-api-mediacontent"
 , "publishConfig": { "tag": "alpha" }
 , "description": "MediaContent API"
 , "keywords": [ "webinos", "mediacontent", "API"]
