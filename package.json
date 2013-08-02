@@ -6,9 +6,8 @@
 , "homepage": "http://webinos.org/"
 , "author": "Habib Virji, Toby Ealden"
 , "repository":
-  { "type": "git"  , "url": "http://dev.webinos.org/git/wp4.git"  }, "bugs":
-  { "email": "webinos-wp4-ml@fokus.fraunhofer.de"
-  , "url": ""
+  { "type": "git"
+  , "url": "https://github.com/webinos/webinos-api-mediaContent.git"
   }
 , "directories":
   { "lib": "./lib",
