@@ -114,5 +114,6 @@
         }
         );*/
     };
+    WebinosService.prototype.bindService.call(this, bindCB);
   };
 }());
