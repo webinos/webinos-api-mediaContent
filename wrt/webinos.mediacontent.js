@@ -82,6 +82,12 @@
         );
     };
 
+    this.getLink = function (params, successCallback, errorCallback) {
+      "use strict";
+      var getLink = webinos.rpcHandler.createRPC(this, "getLink", params);
+      webinos.rpcHandler.executeRPC(getLink, successCallback, errorCallback);
+    };
+
     this.getContents = function (listener, errorCB, params) {
       "use strict";
       var rpc = webinos.rpcHandler.createRPC(this, "getContents", params);//, totalBuffer = 0, data = "";
