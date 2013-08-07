@@ -1,24 +1,28 @@
-{ "name": "webinos-api-mediacontent"
-, "publishConfig": { "tag": "alpha" }
-, "description": "MediaContent API"
-, "keywords": [ "webinos", "mediacontent", "API"]
-, "version": "0.0.1"
-, "homepage": "http://webinos.org/"
-, "author": "Habib Virji, Toby Ealden"
-, "repository":
-  { "type": "git"  , "url": "http://dev.webinos.org/git/wp4.git"  }, "bugs":
-  { "email": "webinos-wp4-ml@fokus.fraunhofer.de"
-  , "url": ""
-  }
-, "directories":
-  { "lib": "./lib",
-    "test": "./test"
-  }
-, "main": "./lib/mediacontent.js"
-, "dependencies":
-  {
-  }
-, "bundleDependencies":
-  [
+{ "name" : "webinos-api-mediacontent"
+, "version" : "0.0.1"
+, "description" : "MediaContent API"
+, "keywords" :
+  [ "webinos"
+  , "mediacontent"
+  , "API"
   ]
+, "homepage" : "http://www.webinos.org"
+, "bugs" : "http://jira.webinos.org"
+, "author" : "Habib Virji <habib.virji@samsung.com> and Toby Ealden <toby.ealden@gmail.com>"
+, "main" : "./lib/mediacontent.js"
+, "directories" :
+  { "lib" : "./lib"
+  , "test" : "./test"
+  }
+, "repository" :
+  { "type" : "git"
+  , "url" : "https://github.com/webinos/webinos-api-mediaContent.git"
+  }
+, "devDependencies" :
+  { "webinos-jsonrpc2" : "*"
+  }
+, "dependencies" :
+  { "xml2js" : "0.2.x"
+  }
+, "publishConfig" : { "tag" : "alpha" }
 }
