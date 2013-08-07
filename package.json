@@ -23,6 +23,7 @@
   }
 , "dependencies" :
   { "xml2js" : "0.2.x"
+  , "send" : "0.1.x"
   }
 , "publishConfig" : { "tag" : "alpha" }
 }
