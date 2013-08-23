@@ -114,5 +114,13 @@
         }
         );*/
     };
+
+    this.getLink = function (params, successCallback, errorCallback) {
+      "use strict";
+      var getLink = webinos.rpcHandler.createRPC(this, "getLink", params);
+      webinos.rpcHandler.executeRPC(getLink, successCallback, errorCallback);
+    };
+
+    WebinosService.prototype.bindService.call(this, bindCB);
   };
 }());
