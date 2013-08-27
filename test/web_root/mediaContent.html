@@ -71,7 +71,11 @@
       for (i = 0; i < folderDetails.length; i = i + 1) {
         /*if (folderDetails[i].type === "Image") { folderData += "<tr>"+createObjectURL(folderDetails[i])+"</tr>";}*/
         folderData += "<tr> <td>" + folderDetails[i].title + "</td>";
-        folderData += "<td>" + folderDetails[i].itemURI + "</td>";
+        if (folderDetails[i].type === "Image" && folderDetails[i].thumbnailURIs.length){
+          folderData += "<td>" + folderDetails[i].itemURI + "<img src='"+folderDetails[i].thumbnailURIs[0]+"'/></td>";
+        }else{
+          folderData += "<td>" + folderDetails[i].itemURI + "</td>";
+        }
         folderData += "<td>" + folderDetails[i].type + " ("+ folderDetails[i].mimeType + ")</td>";
         folderData += "<td>" + folderDetails[i].size + "</td>";
         folderData += "<td>" + folderDetails[i].modifiedDate + "</td>";
