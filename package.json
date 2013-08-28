@@ -1,31 +1,35 @@
-{ "name" : "webinos-api-mediacontent"
-, "version" : "0.0.1"
-, "description" : "MediaContent API"
-, "keywords" :
-  [ "webinos"
-  , "mediacontent"
-  , "API"
-  ]
-, "homepage" : "http://www.webinos.org"
-, "bugs" : "http://jira.webinos.org"
-, "author" : "Habib Virji <habib.virji@samsung.com> and Toby Ealden <toby.ealden@gmail.com>"
-, "main" : "./lib/mediacontent.js"
-, "directories" :
-  { "lib" : "./lib"
-  , "test" : "./test"
+{
+  "name": "webinos-api-mediacontent",
+  "version": "0.0.1",
+  "description": "MediaContent API",
+  "keywords": [
+    "webinos",
+    "mediacontent",
+    "API"
+  ],
+  "homepage": "http://www.webinos.org",
+  "bugs": "http://jira.webinos.org",
+  "author": "Habib Virji <habib.virji@samsung.com> and Toby Ealden <toby.ealden@gmail.com>",
+  "main": "./lib/mediacontent.js",
+  "directories": {
+    "lib": "./lib",
+    "test": "./test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/webinos/webinos-api-mediaContent.git"
+  },
+  "devDependencies": {
+    "webinos-jsonrpc2": "*"
+  },
+  "dependencies": {
+    "xml2js": "0.2.x",
+    "node-uuid": "1.4.x",
+    "send": "0.1.x",
+    "gm": "1.11.x",
+    "mkdirp": "~0.3.5"
+  },
+  "publishConfig": {
+    "tag": "alpha"
   }
-, "repository" :
-  { "type" : "git"
-  , "url" : "https://github.com/webinos/webinos-api-mediaContent.git"
-  }
-, "devDependencies" :
-  { "webinos-jsonrpc2" : "*"
-  }
-, "dependencies" :
-  { "xml2js" : "0.2.x"
-  , "node-uuid" : "1.4.x"
-  , "send" : "0.1.x"
-  , "gm" : "1.11.x"
-  }
-, "publishConfig" : { "tag" : "alpha" }
 }
