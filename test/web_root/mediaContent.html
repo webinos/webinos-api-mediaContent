@@ -64,7 +64,7 @@
       var i;
       document.getElementById('displayDetails').innerHTML = "";
       var folderData = "<table border=2 cellpadding='2' cellspacing='2'><tr>";
-      folderData += "<th>Title</th><th>Path</th><th>Type</th><th>Size</th><th>Date</th>";
+      folderData += "<th>Title</th><th>Path</th><th>Type</th><th>Size</th><th>Date</th><th>Thumb</th>";
       folderData += "<th>Album</th><th>Artists</th><th>Duration</th><th>Width</th><th>Height</th>";
       folderData += "<th>TrackNumber</th><th>BitRate</th>";
       folderData += "</tr>";
@@ -79,6 +79,11 @@
         folderData += "<td>" + folderDetails[i].type + " ("+ folderDetails[i].mimeType + ")</td>";
         folderData += "<td>" + folderDetails[i].size + "</td>";
         folderData += "<td>" + folderDetails[i].modifiedDate + "</td>";
+        if (folderDetails[i].thumbnailURIs && folderDetails[i].thumbnailURIs.length > 0) {
+          folderData += "<td>" + folderDetails[i].thumbnailURIs[0] + "</td>";
+        } else {
+          folderData += "<td></td>";
+        }
         if (folderDetails[i].type === "Video") {
           folderData += "<td>" + folderDetails[i].album + "</td>";
           folderData += "<td>" + folderDetails[i].artists + "</td>";
