@@ -27,6 +27,7 @@
     "node-uuid": "1.4.x",
     "send": "0.1.x",
     "gm": "1.11.x",
+    "peer-upnp": "~0.0.1",
     "mkdirp": "~0.3.5"
   },
   "publishConfig": {
