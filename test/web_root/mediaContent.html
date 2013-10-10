@@ -10,36 +10,50 @@
         $('#message').append ('<li>' + data.payload.message + '</li>');
       }
       webinos.session.addListener ('info', printInfo);
-      jQuery("#btnFind").click(findService);
+      jQuery("#btnFind").click(findServices);
       jQuery("#btnBind").click(bindService);
       jQuery("#btnGetLocalFolders").click(getLocalFolders);
       jQuery("#btnFindItems").click(findItemInFolders);
       jQuery("#btnDisplayContents").click(displayMedia)
       jQuery('#btnDisplayAllPictures').click(displayAllPictures);
+
+      findServices();
     });
 
     var mediaContentService = null;
     var mediaContentServices =[];
     var mediaContent = null;
 
-    function findService() {
+    function findServices() {
       "use strict";
+      mediaContentService = null;
+      mediaContentServices =[];
+      mediaContent = null;
+      $('#serviceList').empty();
+
       webinos.discovery.findServices(new ServiceType ('http://webinos.org/api/mediacontent'), {onFound:function (service) {
-        $('#serviceList').append ($ ('<option>' + service.serviceAddress + '</option>'));
-        mediaContentServices[service.serviceAddress] = service;
+        $('#serviceList').append ($ ('<option value="' + service.id + '">' + service.displayName + '</option>'));
+        mediaContentServices[service.id] = service;
         document.getElementById('position').innerHTML = "MediaContent service found";
       }});
     }
 
     function bindService() {
       "use strict";
-      mediaContentService = mediaContentServices[$ ('#serviceList option:selected').val ()];
+      mediaContentService = mediaContentServices[$ ('#serviceList option:selected').val()];
+
+      if (!mediaContentService) {
+          alert('no service to bind to, refresh service list');
+          return;
+      }
+
       mediaContentService.bindService ({onBind:function (service) {
         document.getElementById('position').innerHTML = "Bound MediaContent service";
       }});
     }
 
-    function handle_errors() {
+    function handle_errors(err) {
+        alert('err: ' + JSON.stringify(err));
     }
 
     function folderDetails(folderDetails) {
@@ -71,16 +85,12 @@
       for (i = 0; i < folderDetails.length; i = i + 1) {
         /*if (folderDetails[i].type === "Image") { folderData += "<tr>"+createObjectURL(folderDetails[i])+"</tr>";}*/
         folderData += "<tr> <td>" + folderDetails[i].title + "</td>";
-        if (folderDetails[i].type === "Image" && folderDetails[i].thumbnailURIs.length){
-          folderData += "<td>" + folderDetails[i].itemURI + "<img src='"+folderDetails[i].thumbnailURIs[0]+"'/></td>";
-        }else{
-          folderData += "<td>" + folderDetails[i].itemURI + "</td>";
-        }
+        folderData += "<td>" + folderDetails[i].itemURI + "</td>";
         folderData += "<td>" + folderDetails[i].type + " ("+ folderDetails[i].mimeType + ")</td>";
         folderData += "<td>" + folderDetails[i].size + "</td>";
         folderData += "<td>" + folderDetails[i].modifiedDate + "</td>";
         if (folderDetails[i].thumbnailURIs && folderDetails[i].thumbnailURIs.length > 0) {
-          folderData += "<td>" + folderDetails[i].thumbnailURIs[0] + "</td>";
+          folderData += "<td><img src='"+folderDetails[i].thumbnailURIs[0]+"'/></td>";
         } else {
           folderData += "<td></td>";
         }
@@ -191,16 +201,15 @@
 </head>
 <body>
 
-<div style="background-color:#b0c4de; border:1px solid black; color:#f0f8ff;"><p>
-  PZH PZP LIST :
-  <select id="serviceList">
-    <option></option>
-  </select>
+<div style="background-color:#b0c4de; border:1px solid black; color:#f0f8ff;">
+  <p>
+    MediaContent services:
+    <select id="serviceList"></select>
+    <button id="btnFind">Refresh</button>
   </p>
 
   <p>
-  <button id="btnFind">Find MediaContent Service</button>
-  <button id="btnBind">Bind MediaContent Service</button>
+    <button id="btnBind">Bind MediaContent Service</button>
   </p>
 </div>
 <div style="background-color:#191970; border:1px solid black; color:#f0f8ff;">
