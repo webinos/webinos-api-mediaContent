@@ -94,14 +94,14 @@
         } else {
           folderData += "<td></td>";
         }
-        if (folderDetails[i].type === "Video") {
+        if (folderDetails[i].type.toUpperCase() === "VIDEO") {
           folderData += "<td>" + folderDetails[i].album + "</td>";
           folderData += "<td>" + folderDetails[i].artists + "</td>";
           folderData += "<td>" + folderDetails[i].duration + "</td>";
           folderData += "<td>" + folderDetails[i].width + "</td>";
           folderData += "<td>" + folderDetails[i].height + "</td>";
         }
-        else if (folderDetails[i].type === "Audio") {
+        else if (folderDetails[i].type.toUpperCase() === "AUDIO") {
           folderData += "<td>" + folderDetails[i].album + "</td>";
           folderData += "<td>" + folderDetails[i].artists + "</td>";
           folderData += "<td>" + folderDetails[i].duration + "</td>";
@@ -109,7 +109,7 @@
           folderData += "<td>" + folderDetails[i].trackNumber + "</td>";
           folderData += "<td>" + folderDetails[i].bitrate + "</td>";
         }
-        else if (folderDetails[i].type === "Image") {
+        else if (folderDetails[i].type.toUpperCase() === "IMAGE") {
           folderData += "<td></td><td></td><td></td>";
           folderData += "<td>" + folderDetails[i].width + "</td>";
           folderData += "<td>" + folderDetails[i].height + "</td>";
