@@ -74,11 +74,11 @@ The list of attributes that can be written back to the local backend using updat
 
 ###getContents(listener, errorCB, params)
 
-Getcontents method retrieves (such as images, videos, or music) that are available on the device
+getContents method retrieves the file content for the item as referenced by params
 
 ###getLink(params, successCallback, errorCallback)
 
-getlink method retrieves the link of the mediaitem that are available on the device
+getlink method retrieves a HTTP URL for the referenced item
 
 
 ## Links ##
