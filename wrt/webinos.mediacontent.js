@@ -22,11 +22,15 @@
    * @param obj Object containing displayName, api, etc.
    */
   MediaContentModule = function (obj) {
-    this.base = WebinosService;
-    this.base(obj);
+    WebinosService.call(this, obj);
   };
 
-  MediaContentModule.prototype = new WebinosService;
+  // Inherit all functions from WebinosService
+  MediaContentModule.prototype = Object.create(WebinosService.prototype);
+  // The following allows the 'instanceof' to work properly
+  MediaContentModule.prototype.constructor = MediaContentModule;
+  // Register to the service discovery
+  _webinos.registerServiceConstructor("http://webinos.org/api/mediacontent", MediaContentModule);
 
   /**
    * To bind the service.
