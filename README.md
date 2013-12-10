@@ -60,6 +60,25 @@ Alternatively you can use the webinos dashboard to allow the user choose the med
 
 Once you have a reference to an instance of a service you can use the following methods:
 
+###findItem(successCB, errorCB, params)
+
+To obtain a list of media items in a specific directory, use findItem method
+
+###updateItem(successCB, errorCB)
+
+The list of attributes that can be written back to the local backend using updateItem method
+
+###updateItemsBatch(successCB, errorCB)
+
+The list of attributes that can be written back to the local backend using updateItemsBatch method
+
+###getContents(listener, errorCB, params)
+
+getContents method retrieves the file content for the item as referenced by params
+
+###getLink(params, successCallback, errorCallback)
+
+getlink method retrieves a HTTP URL for the referenced item
 
 
 ## Links ##
