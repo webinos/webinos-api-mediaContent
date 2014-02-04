@@ -1,4 +1,6 @@
 {
   "name": "mediacontent",
-  "params": {}
+  "params": {
+    "useUPnP": true
+  }
 }
