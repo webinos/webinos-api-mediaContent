@@ -2,7 +2,7 @@
 
 **Service Type**: http://webinos.org/api/mediacontent
 
-The main concept of media content API is to !TODO!
+The main concept of media content API is to provide information about multimedia contents stored in the your personal zone's devices.
 
 
 ## Installation ##
